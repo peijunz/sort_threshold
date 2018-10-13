@@ -3,11 +3,13 @@ using namespace std;
 
 template <typename T>
 void insertion_sort(T* head, int length){
-    int i = 1, j;
-    for (; i<length; i++){
+    int i, j, tmp;
+    for (i=1; i<length; i++){
+        tmp = head[i];
         for (j=i; j>0 && head[j-1] > head[j]; j--){
-            swap(head[j-1], head[j]);
+            head[j] = head[j-1];
         }
+        head[j-1] = tmp;
     }
 }
 
